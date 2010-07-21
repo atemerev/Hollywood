@@ -24,14 +24,14 @@ public class PromiseTest {
 
         final Promise<Integer> p0 = promiseExecutor.submit(new Callable<Integer>() {
             public Integer call() throws Exception {
-                Thread.sleep(50); // Must be long enoght, see step (*)
+                Thread.sleep(50); // Must be long enough, see step (*)
                 executed[0] = true;
                 return 6; // Determined by fair dice throw
             }
         });
         Assert.assertTrue(true); // Promise started
 
-        // Let's append a promise while the appendant is working
+        // Let's append a promise while the original promise is working
         Promise<?> p1 = p0.append(new Runnable() {
             public void run() {
                 executed[1] = true;
@@ -52,7 +52,7 @@ public class PromiseTest {
             }
         });
 
-        // It must have been immediatelly executed in our thread.
+        // It must have been immediately executed in our thread.
         Assert.assertTrue(executed[2]);
         Assert.assertTrue(p2.isDone());
     }

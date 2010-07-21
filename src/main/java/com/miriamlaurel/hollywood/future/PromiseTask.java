@@ -17,7 +17,7 @@ import java.util.concurrent.TimeoutException;
  * @author Alexander Temerev, Alexander Kuklev
  * @version $Id$
  */
-class PromiseTask<T> extends AbstractPromise<T> implements Promise<T>, Runnable {
+public class PromiseTask<T> extends AbstractPromise<T> implements Promise<T>, Runnable {
 
     private Callable<T> task;
 

@@ -69,7 +69,7 @@ public abstract class AbstractPromise<T> implements Promise<T> {
      * This method must be called <strong>once</strong> when the task is completed. This will mark the
      * promise as done, fire <code>CompletedEvent</code> to attached listeners and process all continuations.
      */
-    protected void markDone() {
+    public void markDone() {
         isDone = true;
         delegate.processMessage(new CompletedEvent(this));
         fireContinuations();
@@ -79,7 +79,7 @@ public abstract class AbstractPromise<T> implements Promise<T> {
      * This method must be called if the task was cancelled. This will mark the promise as cancelled and fire
      * <code>CancelledEvent</code> to attached listeners.
      */
-    protected void markCancelled() {
+    public void markCancelled() {
         isDone = true;
         isCancelled = true;
         delegate.processMessage(new CancelledEvent(this));

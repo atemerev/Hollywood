@@ -9,7 +9,7 @@ import java.util.concurrent.TimeoutException;
  * @author Alexander Temerev, Alexander Kuklev
  * @version $Id$
  */
-abstract class MementoPromiseProxy<T> extends MementoAbstractPromise<T> {
+public abstract class MementoPromiseProxy<T> extends MementoAbstractPromise<T> {
     private Promise<T> target;
 
     MementoPromiseProxy(Promise<T> target) {
